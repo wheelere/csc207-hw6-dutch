@@ -35,7 +35,38 @@ public class DutchFlagSort {
 	}
     }
 
-    public static void main(String[] args) throws Exception {
+  
+
+    public static void DutchSort2(int[] array) throws Exception {
+	int len = array.length;
+	int afterWhite = 0;
+	int firstBlue = len;
+	int i = 0;
+	int curr;
+	while (afterWhite < firstBlue && i < len) {
+	    curr = array[i];
+	    switch (curr) {
+	    case 1:
+		i++;
+		break;
+	    case 2:
+		array[i] = array[afterWhite];
+		array[afterWhite] = curr;
+		afterWhite++;
+		break;
+	    case 3:
+		array[i] = array[firstBlue - 1];
+		array[firstBlue - 1] = curr;
+		firstBlue--;
+		break;
+	    default:
+		throw new Exception("Invalid element " + curr + " in array");
+	    }
+	}
+    }
+
+
+public static void main(String[] args) throws Exception {
 	int[] array1 = { 1, 2, 3, 1, 2, 3, 1, 3, 3, 2, 2, 2, 2, 2, 2, 1 };
 	dutchSort(array1);
 	PrintWriter pen = new PrintWriter(System.out, true);
@@ -43,5 +74,6 @@ public class DutchFlagSort {
 	    pen.print(array1[i] + " ");
 	}
 	pen.flush();
-    }
+  }
+
 }
