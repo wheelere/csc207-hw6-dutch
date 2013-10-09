@@ -37,23 +37,28 @@ public class DutchFlagSort {
 		}
 	}
 
+        /*
+	 * dutchSort takes an array of values 1, 2, and 3 (where 1=red, 2=white,
+	 * 3=blue) and sorts it so the 1s come first, 2s come second, and 3s come
+	 * third
+	 */
 	public static void dutchSort2(int[] array) throws Exception {
-		int afterWhite = 0;
-		int firstBlue = array.length;
-		int i = 0;
-		int curr;
+		int afterWhite = 0; //separator for blues after white
+		int firstBlue = array.length; //sets first blue to end
+		int i = 0; //starting index
+		int curr; //current value at index i
 		while (afterWhite < firstBlue && i < array.length) {
 			curr = array[i];
 			switch (curr) {
-			case 1:
+			case 1: //found red, moves forward
 				i++;
 				break;
-			case 2:
+			case 2: //found white, moves it forward and continues
 				array[i] = array[afterWhite];
 				array[afterWhite] = curr;
 				afterWhite++;
 				break;
-			case 3:
+			case 3: //found blue, puts it at the end
 				array[i] = array[firstBlue - 1];
 				array[firstBlue - 1] = curr;
 				firstBlue--;
