@@ -58,7 +58,8 @@ public class DutchFlagSort {
 				array[afterWhite] = curr;
 				afterWhite++;
 				break;
-			case 3: //found blue, puts it at the end
+			case 3: //found blue, puts in front of the already placed blue elements
+				// (starting at the end of the array)
 				array[i] = array[firstBlue - 1];
 				array[firstBlue - 1] = curr;
 				firstBlue--;
