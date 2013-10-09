@@ -10,9 +10,8 @@ public class DutchFlagSort {
 	 * third
 	 */
 	public static void dutchSort(int[] array) throws Exception {
-		int len = array.length;
 		int r = 0; // Splitter index for red|white
-		int b = len - 1; // Splitter index for white|blue
+		int b = array.length - 1; // Splitter index for white|blue
 		int i = 0; // current index
 		int curr; // the current element being examined
 		while (i <= b) {
@@ -38,13 +37,12 @@ public class DutchFlagSort {
 		}
 	}
 
-	public static void DutchSort2(int[] array) throws Exception {
-		int len = array.length;
+	public static void dutchSort2(int[] array) throws Exception {
 		int afterWhite = 0;
-		int firstBlue = len;
+		int firstBlue = array.length;
 		int i = 0;
 		int curr;
-		while (afterWhite < firstBlue && i < len) {
+		while (afterWhite < firstBlue && i < array.length) {
 			curr = array[i];
 			switch (curr) {
 			case 1:
@@ -71,6 +69,14 @@ public class DutchFlagSort {
 		dutchSort(array1);
 		PrintWriter pen = new PrintWriter(System.out, true);
 		for (int i = 0; i < array1.length; i++) {
+			pen.print(array1[i] + " ");
+		}
+		pen.flush();
+		
+		int[] array2 = { 1, 1, 3, 2, 2, 3, 1, 1, 3, 2, 1, 1, 1, 3, 3, 1 };
+		dutchSort2(array2);
+		PrintWriter pen = new PrintWriter(System.out, true);
+		for (int i = 0; i < array2.length; i++) {
 			pen.print(array1[i] + " ");
 		}
 		pen.flush();
